@@ -15,8 +15,11 @@ fun main(args: Array<String>): Unit {
 
     val str: String?
     str = myThirdFunction()
-    var size = str!!.length //kotlin.KotlinNullPointerException
+    var size = str?.length //kotlin.KotlinNullPointerException
     //if we use @? we will not have an exception
+
+    val car = Car(20.2, 2, true)
+    println("Our car is new? ${car.isTheCarNew}")
 }
 
 fun myFirstFunction(a: Int, b: Long): Long{
