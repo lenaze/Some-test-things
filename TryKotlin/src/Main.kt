@@ -23,8 +23,9 @@ fun main(args: Array<String>) {
     val car = Car(20.2, 2, true)
     println("Our car is new?") //${car.isTheCarNew}
 
-    printIsTheCarNew(car)
-    printIsTheCarBig(car)
+    //printIsTheCarNew(car)
+    //printIsTheCarBig(car)
+    car.ride(printIsTheCarNew(car),printIsTheCarBig(car))
 }
 
 fun myFirstFunction(a: Int, b: Long): Long{
@@ -37,12 +38,12 @@ fun myThirdFunction(): String? {
     return null
 }
 
-fun printIsTheCarNew(car: Car) = when(car.isTheCarNew) {
-    true -> println("The car is new")
-    false -> println("We need a new car")
+fun printIsTheCarNew(car: Car): String = when(car.isTheCarNew) {
+    true -> "new"
+    false -> "old"
 }
 
-fun printIsTheCarBig(car: Car) = when{
-    (car.carsWeight >= 20) -> println("Yes, the car is big")
-    else -> println("No, it is small")
+fun printIsTheCarBig(car: Car): String = when{
+    (car.carsWeight >= 20) -> "big"
+    else -> "small"
 }
