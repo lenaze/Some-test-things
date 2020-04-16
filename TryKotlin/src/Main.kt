@@ -16,6 +16,7 @@ fun main(args: Array<String>): Unit {
     val str: String?
     str = myThirdFunction()
     var size = str!!.length //kotlin.KotlinNullPointerException
+    //if we use @? we will not have an exception
 }
 
 fun myFirstFunction(a: Int, b: Long): Long{
