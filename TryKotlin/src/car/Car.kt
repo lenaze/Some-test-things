@@ -9,4 +9,7 @@ class Car(private var weight: Double, private var size: Int, private var isNew: 
         set(value) {
             isNew = value
         }
+
+    val carsWeight: Double
+        get() = weight
 }
