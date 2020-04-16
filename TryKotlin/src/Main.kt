@@ -1,4 +1,6 @@
-fun main(args: Array<String>): Unit {
+import car.Car
+
+fun main(args: Array<String>) {
     val UserJava = UserJava("It's a var from Java!");
     println("Example java: ${UserJava.name}")
 

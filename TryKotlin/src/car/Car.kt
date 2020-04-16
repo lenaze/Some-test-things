@@ -1,3 +1,5 @@
+package car
+
 class Car(private var weight: Double, private var size: Int, private var isNew: Boolean) {
 
     var isTheCarNew: Boolean
