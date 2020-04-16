@@ -1,4 +1,5 @@
 import car.Car
+import car.Ride
 
 fun main(args: Array<String>) {
     /*val UserJava = UserJava("It's a var from Java!");
@@ -23,9 +24,10 @@ fun main(args: Array<String>) {
     val car = Car(20.2, 2, true)
     println("Our car is new?") //${car.isTheCarNew}
 
-    //printIsTheCarNew(car)
-    //printIsTheCarBig(car)
-    car.ride(printIsTheCarNew(car),printIsTheCarBig(car))
+    val n: String = printIsTheCarNew(car)
+    val b: String = printIsTheCarBig(car)
+    car.ride(n, b)
+
 }
 
 fun myFirstFunction(a: Int, b: Long): Long{
