@@ -25,3 +25,5 @@ values ('MacOS', 2), ('Windows 7', 3), ('Windows 10', 4),
 select name, age from users
 inner join computer c on users.id = c.userID
 
+
+
