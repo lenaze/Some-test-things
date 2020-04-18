@@ -19,11 +19,13 @@ public class Main {
             statement.execute("INSERT INTO users (name, age, email) " +
                     "VALUE ('Grace', 27, 'test@gmail.com')");
 
-            connection.close();
-            if (connection.isClosed()) {
-                System.out.println("Соединение с БД Закрыто!");
-            }
+            statement.executeQuery("SELECT * from users");
 
+            statement.addBatch("INSERT INTO users (name, age) value ('new name1', 22)");
+            statement.addBatch("INSERT INTO users (name, age) value ('new name2', 4)");
+            statement.addBatch("INSERT INTO users (name, age) value ('new name3', 12)");
+
+            statement.executeBatch();
 
         }catch (SQLException e) {
         }
