@@ -1,8 +1,4 @@
-import java.sql.Connection;
-import java.sql.Driver;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
+import java.sql.*;
 
 public class Main {
     private static final String URL = "jdbc:mysql://localhost:3306/mydbtest";
@@ -11,9 +7,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Connection connection = null;
-        try {
-            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        try(Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Statement statement = connection.createStatement()) {
 
             if (!connection.isClosed()) {
                 System.out.println("Соединение с БД Установлено!");
@@ -22,12 +17,11 @@ public class Main {
             if (connection.isClosed()) {
                 System.out.println("Соединение с БД Закрыто!");
             }
-        }catch (SQLException e) { e.getErrorCode(); }
-        finally {
-            try {
-                connection.close();
-            }
-            catch (SQLException e) { e.getErrorCode(); }
+
+            statement.execute("INSERT INTO users (name, age, email) " +
+                    "VALUE ('Grace', 27, 'test@gmail.com')");
+        }catch (SQLException e) {
+            System.err.println(e.getErrorCode());
         }
     }
 }
